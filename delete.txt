@@ -1,0 +1,24 @@
+
+package javaapplication4;
+import java.sql.Connection;
+
+import java.sql.DriverManager;
+import java.sql.Statement;
+import java.sql.SQLException;
+import java.sql.PreparedStatement;
+
+
+
+import java.sql.Connection;
+
+
+public class deleterow {
+    public static void deleteDB(int id)throws ClassNotFoundException, SQLException{
+    Connection conn=DBconnect.connect();
+     String sql = "DELETE FROM $tablename$ WHERE id = ?";
+    PreparedStatement pstmt = conn.prepareStatement(sql);
+    pstmt.setInt(1, id);
+    pstmt.executeUpdate();
+ 
+    }
+}

@@ -1,0 +1,26 @@
+package javaapplication4;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.PreparedStatement;
+
+
+public class insertintodb {
+        public static void insertDB() throws ClassNotFoundException, SQLException{
+    String sql = "insert into test values(?,?,?)";
+Connection conn=DBconnect.connect();
+     PreparedStatement  pst = conn.prepareStatement(sql);
+     try{
+     pst.setInt(1,8);
+     pst.setInt(2,4);
+     pst.setInt(3,100);
+     pst.executeUpdate();}
+     catch(SQLException e){
+            System.out.println("unacceptable values"); 
+             }
+}
+    
+    
+    
+
+    
+}

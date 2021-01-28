@@ -1,0 +1,36 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package javaapplication4;
+
+import java.sql.DriverManager;
+import java.sql.Statement;
+import java.sql.SQLException;
+import java.sql.ResultSet;
+import java.sql.Connection;
+
+/**
+ *
+ * @author User
+ */
+public class SearchDB {
+    public static void search(int id)throws ClassNotFoundException, SQLException{
+      Connection con = null;
+        Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+    String connectionURL="jdbc:sqlserver://localhost:1433;databaseName=Parking;user=admin;password=admin";
+        con=DriverManager.getConnection(connectionURL);
+Statement statement = con.createStatement();
+ResultSet results = statement.executeQuery("SELECT * FROM &tablename&");
+while (results.next()) {
+    int datafromtable = results.getInt(1);
+    if(id==datafromtable)
+    {
+       System.out.println(results.getInt(2)+results.getInt(3));
+    }
+    }
+    
+    }
+    
+}
