@@ -1,0 +1,33 @@
+create database parking 
+use parking
+create table slots 
+(
+	slot_id int not null, 
+	slot_status bit default 0,
+	plat_no nvarchar(100) default 'no car',
+	constraint PK_ID PRIMARY KEY (slot_id)
+);
+create table tickets
+(
+	ticket_id int not null, 
+-- duplication!!	slot_id int not null, 
+	transcripte_date time not null, 
+--	book_hours time not  null,
+--	book_minutes time not  null,
+	plate_no nvarchar(100) not null, 
+--	constraint pk_ID PRIMARY KEY (ticket_id)
+);
+create table users 
+(	
+--	users_id int not null, 
+	users_name nvarchar(100) not null, 
+	plate_no nvarchar(100) not null,
+	--constraint PK_ID PRIMARY KEY (users_id)
+);
+create table shift_report 
+(
+	slot_id_shift int not null, 
+	book_hours int default 0, 
+	book_mins int default 0,
+	car_payment int  default 0
+);
